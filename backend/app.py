@@ -101,7 +101,7 @@ def search():
 
     if not repo_name.startswith('spaces/') and not repo_name.startswith('datasets/'):
         repo_name = f'models/{repo_name}'
-    
+    repo_name = '/'.join(repo_name.split('/')[:3])
     if not query:
         return jsonify({'error': 'No query provided'}), 400
         
