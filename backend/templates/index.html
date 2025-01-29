@@ -301,7 +301,7 @@
 
             return filteredResults
                 .map(result => `
-                    <a href="https://huggingface.co/{{ repo_name }}/discussions/${result.discussion_id}" 
+                    <a href="${result.url}" 
                        class="result-card${!result.is_open ? ' closed' : ''}" 
                        target="_blank" style="text-decoration: none;">
                         <div class="type-icon-container">

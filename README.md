@@ -4,7 +4,12 @@ A browser extension with useful tools for Hugging Face (huggingface.co).
 
 Only tested on Chrome, might or might not work on Firefox.
 
-Coming soon to the Chrome Web Store.
+Coming soon to the Chrome Web Store. For now, you can install it manually:
+
+1. Clone this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select this directory
 
 ## Features
 

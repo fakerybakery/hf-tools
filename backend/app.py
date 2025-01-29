@@ -89,6 +89,9 @@ def index():
     query = request.args.get('query')
     if not repo_name:
         return render_template('no_repo.html')
+    if not repo_name.startswith('spaces/') and not repo_name.startswith('datasets/') and not repo_name.startswith('models/'):
+        repo_name = f'models/{repo_name}'
+    repo_name = '/'.join(repo_name.split('/')[:3])
     return render_template('index.html', repo_name=repo_name, query=query)
 
 @app.route('/search', methods=['POST'])
@@ -99,9 +102,6 @@ def search():
     if not repo_name:
         return jsonify({'error': 'No repository provided'}), 400
 
-    if not repo_name.startswith('spaces/') and not repo_name.startswith('datasets/'):
-        repo_name = f'models/{repo_name}'
-    repo_name = '/'.join(repo_name.split('/')[:3])
     if not query:
         return jsonify({'error': 'No query provided'}), 400
         
@@ -115,10 +115,14 @@ def search():
         query_parser = QueryParser("content", ix.schema)
         q = query_parser.parse(query)
         results = searcher.search(q)
-        
+        if repo_name.startswith('models/'):
+            url_repo_name = repo_name[7:]
+        else:
+            url_repo_name = repo_name
         # Format results
         formatted_results = [{
             'discussion_id': escape(result['discussion_id']),
+            'url': f'https://huggingface.co/{url_repo_name}/discussions/{result["discussion_id"]}',
             'title': escape(result['title']), 
             'author': escape(result['author']),
             'excerpt': bleach.clean(result.highlights("content"), tags=['b'], strip=True),
