@@ -1,0 +1,6 @@
+*.pem
+*.crx
+dist/
+build/
+.DS_Store
+backend/discussion_indices/

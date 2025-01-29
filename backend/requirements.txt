@@ -1,0 +1,4 @@
+bleach
+whoosh
+flask
+requests
