@@ -77,7 +77,7 @@ def index_discussions(repo_name):
             discussion_id=str(discussion["num"]),
             title=discussion["title"],
             content=f"Title: {discussion['title']}\n\n" + '\n'.join(content),
-            author=discussion["author"]["name"],
+            author=discussion["author"]["name"] if "author" in discussion else 'deleted',
             is_pr=discussion["isPullRequest"],
             is_open=discussion["status"] == "open"
         )
