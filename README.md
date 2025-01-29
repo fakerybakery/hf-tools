@@ -50,8 +50,6 @@ Note that the backend URL is hardcoded for now, so you'll need to change it in `
 
 ## Screenshots
 
-## Screenshots
-
 Repo size estimation:
 
 <img src="screenshots/reposize.png" alt="Repo size estimation" width="300">
