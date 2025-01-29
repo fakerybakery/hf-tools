@@ -1,10 +1,10 @@
 # HF Tools (wip)
 
-A browser extension with useful tools for Hugging Face (huggingface.co).
+A browser extension with useful tools for [Hugging Face](https://huggingface.co).
 
 Only tested on Chrome, might or might not work on Firefox.
 
-Coming soon to the Chrome Web Store. For now, you can install it manually - see the [Development](#development) section below.
+In review for the Chrome Web Store. For now, you can install it manually - see the [Development](#development) section below.
 
 Curious how it looks? Check out the [Screenshots](#screenshots) section below.
 
