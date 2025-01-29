@@ -12,6 +12,7 @@ Curious how it looks? Check out the [Screenshots](#screenshots) section below.
 
 - View repository sizes for models and datasets
 - Search Discussions w/ full-text search (optional)
+- View user join date
 
 ## Full-text search
 
@@ -44,6 +45,7 @@ Note that the backend URL is hardcoded for now, so you'll need to change it in `
 ## TODO
 
 - [x] Repo size estimation
+- [x] User join date
 - [x] Search Discussions (Banner added as reminder)
     - [x] Full-text discussion search w/ external server
     - [ ] Allow customizing backend URL
@@ -62,6 +64,10 @@ Search Discussions:
 Settings:
 
 <img src="screenshots/settings.png" alt="Settings" width="300">
+
+User join date:
+
+<img src="screenshots/joindate.png" alt="User join date" width="300">
 
 ## Disclaimer
 

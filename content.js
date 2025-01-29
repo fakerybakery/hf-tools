@@ -193,3 +193,63 @@ if (window.location.pathname.endsWith('/discussions')) {
         }
     });
 }
+
+if (document.querySelector('div[data-target="UserProfile"]') && document.querySelectorAll('.flex.items-center.text-lg.font-semibold.capitalize.flex-wrap.sm\\:flex-nowrap.gap-3.mb-4')?.length == 3) {
+    console.log('This is a user profile page');
+    
+    // Check settings before adding join date
+    chrome.storage.sync.get({
+        showJoinDate: true
+    }, (settings) => {
+        if (settings.showJoinDate) {
+            // Get username from URL
+            const username = window.location.pathname.slice(1).replace('/', '');
+
+            // Create join date element immediately with loading state
+            if (document.querySelector('.mb-8.flex.items-center.gap-2.whitespace-nowrap.text-gray-500')) {
+                const joinDate = document.createElement('div');
+                joinDate.classList.add('flex', 'items-center', 'text-gray-500', 'text-sm', 'mb-4');
+                
+                // Create calendar icon
+                const calendarIcon = document.createElement('span');
+                calendarIcon.innerHTML = `<svg class="mr-1.5 text-gray-500 flex-none" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16v9zm0-11H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1v1z" fill="currentColor"/></svg>`;
+                
+                // Add loading text initially
+                joinDate.appendChild(calendarIcon);
+                const loadingText = document.createTextNode('Loading...');
+                joinDate.appendChild(loadingText);
+                
+                const container = document.querySelector('.mb-8.flex.items-center.gap-2.whitespace-nowrap.text-gray-500');
+                container.after(joinDate);
+                container.classList.replace('mb-8', 'mb-2');
+
+                // Fetch user info from HF API
+                fetch(`https://huggingface.co/api/users/${username}/overview`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.createdAt) {
+                            // Format date
+                            const date = new Date(data.createdAt);
+                            const formattedDate = date.toLocaleDateString(undefined, {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            });
+
+                            // Replace loading text with actual date
+                            joinDate.removeChild(loadingText);
+                            const dateText = document.createTextNode(`Joined ${formattedDate}`);
+                            joinDate.appendChild(dateText);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching user data:', error);
+                        // Replace loading text with error message
+                        joinDate.removeChild(loadingText);
+                        const errorText = document.createTextNode('Failed to load join date');
+                        joinDate.appendChild(errorText);
+                    });
+            }
+        }
+    });
+}

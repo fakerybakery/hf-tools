@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.sync.get({
     showRepoSize: true,
     showDiscussionSearch: true,
-    showFullTextSearch: false // default to off for beta feature
+    showFullTextSearch: false,
+    showJoinDate: true  // Add default value for new setting
   }, (items) => {
     document.getElementById('showRepoSize').checked = items.showRepoSize;
     document.getElementById('showDiscussionSearch').checked = items.showDiscussionSearch;
     document.getElementById('showFullTextSearch').checked = items.showFullTextSearch;
+    document.getElementById('showJoinDate').checked = items.showJoinDate;  // Add new setting
     
     // Set initial disabled state of full-text search
     const fullTextSearch = document.getElementById('showFullTextSearch');
@@ -122,7 +124,8 @@ document.getElementById('resetSettings').addEventListener('click', () => {
       const defaultSettings = {
         showRepoSize: true,
         showDiscussionSearch: true,
-        showFullTextSearch: false
+        showFullTextSearch: false,
+        showJoinDate: true  // Add default value
       };
       
       chrome.storage.sync.set(defaultSettings, () => {
@@ -130,6 +133,7 @@ document.getElementById('resetSettings').addEventListener('click', () => {
         document.getElementById('showRepoSize').checked = defaultSettings.showRepoSize;
         document.getElementById('showDiscussionSearch').checked = defaultSettings.showDiscussionSearch;
         document.getElementById('showFullTextSearch').checked = defaultSettings.showFullTextSearch;
+        document.getElementById('showJoinDate').checked = defaultSettings.showJoinDate;  // Add new setting
         
         // Update full-text search disabled state
         const fullTextSearch = document.getElementById('showFullTextSearch');
@@ -160,5 +164,12 @@ document.getElementById('settingsSearch').addEventListener('input', (e) => {
     
     // Hide section if it has no matching settings
     section.classList.toggle('hidden', !hasVisibleSettings);
+  });
+});
+
+// Add event listener for new setting
+document.getElementById('showJoinDate').addEventListener('change', (e) => {
+  chrome.storage.sync.set({
+    showJoinDate: e.target.checked
   });
 }); 
