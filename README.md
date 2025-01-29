@@ -42,13 +42,15 @@ Deploying it to Hugging Face Spaces:
 
 Note that the backend URL is hardcoded for now, so you'll need to change it in `content.js` to point to your new space. Search for `iframe.src =` in your IDE and replace the host on that line with your new space's URL. Allowing the backend to be configurable will come in a future release.
 
-## TODO
+## Roadmap
 
 - [x] Repo size estimation
 - [x] User join date
 - [x] Search Discussions (Banner added as reminder)
     - [x] Full-text discussion search w/ external server
     - [ ] Allow customizing backend URL
+- [ ] Optional WYSIWYG editor for Markdown files
+    - [ ] Handle uploads to Hugging Face
 
 ## Screenshots
 
