@@ -6,6 +6,12 @@ Only tested on Chrome, might or might not work on Firefox.
 
 Coming soon to the Chrome Web Store. For now, you can install it manually - see the [Development](#development) section below.
 
+## Screenshots
+
+Repo size estimation:
+
+<img src="screenshots/reposize.png" alt="Repo size estimation" width="300">
+
 ## Features
 
 - View repository sizes for models and datasets

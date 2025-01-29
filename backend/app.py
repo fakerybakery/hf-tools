@@ -66,8 +66,13 @@ def index_discussions(repo_name):
         # Combine all comments into one content string
         content = []
         for comment in comments['events']:
-            if comment['type'] == 'comment':
-                content.append(f'{comment["author"]["name"]}: {comment["data"]["latest"]["raw"]}')
+            try:
+                if comment['type'] == 'comment':
+                    authorname = comment['author']['name'] if 'author' in comment else 'deleted'
+                    content.append(f'{authorname}: {comment["data"]["latest"]["raw"]}')
+            except KeyError:
+                print('Error in comment:')
+                print(comment)
         writer.add_document(
             discussion_id=str(discussion["num"]),
             title=discussion["title"],
