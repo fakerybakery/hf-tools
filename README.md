@@ -6,11 +6,7 @@ Only tested on Chrome, might or might not work on Firefox.
 
 Coming soon to the Chrome Web Store. For now, you can install it manually - see the [Development](#development) section below.
 
-## Screenshots
-
-Repo size estimation:
-
-<img src="screenshots/reposize.png" alt="Repo size estimation" width="300">
+Curious how it looks? Check out the [Screenshots](#screenshots) section below.
 
 ## Features
 
@@ -51,6 +47,23 @@ Note that the backend URL is hardcoded for now, so you'll need to change it in `
 - [x] Search Discussions (Banner added as reminder)
     - [x] Full-text discussion search w/ external server
     - [ ] Allow customizing backend URL
+
+## Screenshots
+
+## Screenshots
+
+Repo size estimation:
+
+<img src="screenshots/reposize.png" alt="Repo size estimation" width="300">
+
+Search Discussions:
+
+<img src="screenshots/search1.png" alt="Search Discussions" width="300">
+<img src="screenshots/search2.png" alt="Search Discussions" width="300">
+
+Settings:
+
+<img src="screenshots/settings.png" alt="Settings" width="300">
 
 ## Disclaimer
 
