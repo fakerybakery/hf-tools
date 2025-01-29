@@ -50,7 +50,7 @@ Note that the backend URL is hardcoded for now, so you'll need to change it in `
     - [x] Full-text discussion search w/ external server
     - [ ] Allow customizing backend URL
 - [ ] Optional WYSIWYG editor for Markdown files
-    - [ ] Handle uploads to Hugging Face
+    - [ ] Handle image uploads to Hugging Face CDN
 
 ## Screenshots
 
