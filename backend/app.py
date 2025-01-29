@@ -98,6 +98,9 @@ def search():
     repo_name = data.get('repo')
     if not repo_name:
         return jsonify({'error': 'No repository provided'}), 400
+
+    if not repo_name.startswith('spaces/') and not repo_name.startswith('datasets/'):
+        repo_name = f'models/{repo_name}'
     
     if not query:
         return jsonify({'error': 'No query provided'}), 400
