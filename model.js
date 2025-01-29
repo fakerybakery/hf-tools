@@ -16,6 +16,9 @@
         });
 
         function addStorageEstimate() {
+            if (document.querySelector('.hf-tools-container')) {
+                return;
+            }
             const toolsContainer = document.createElement('div');
             toolsContainer.classList.add('hf-tools-container');
             

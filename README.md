@@ -9,7 +9,13 @@ Coming soon to the Chrome Web Store.
 ## Features
 
 - View repository sizes for models and datasets
-- Search Discussions (full-text search coming soon)
+- Search Discussions w/ full-text search (optional)
+
+## Full-text search
+
+This is a separate service that runs on a different server. It is hosted on Hugging Face Spaces.
+
+How it works: when you enter a search query, it uses the Hugging Face API to build an index of all the discussions under the repository. This index is cached for 24 hours, which means that new discussions will not be indexed until the cache expires.
 
 ## Development
 
