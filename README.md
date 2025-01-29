@@ -4,6 +4,8 @@ A browser extension with useful tools for Hugging Face (huggingface.co).
 
 Only tested on Chrome, might or might not work on Firefox.
 
+Coming soon to the Chrome Web Store.
+
 ## Features
 
 - View repository sizes for models and datasets
