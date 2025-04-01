@@ -4,7 +4,7 @@ A browser extension with useful tools for [Hugging Face](https://huggingface.co)
 
 Only tested on Chrome, might or might not work on Firefox.
 
-In review for the Chrome Web Store. For now, you can install it manually - see the [Development](#development) section below.
+[Install for Chrome](https://chromewebstore.google.com/detail/hf-tools/pghpacbbnhhoohoniikaafjcnkcjflch)
 
 Curious how it looks? Check out the [Screenshots](#screenshots) section below.
 
